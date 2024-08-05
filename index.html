@@ -448,13 +448,90 @@ body {
                                                                                              ----------------------------------------
 
 
+
+/*-----------------------------------*\
+  #3d gallery
+\*-----------------------------------*/
+
+#rotating-box-section {
+    padding: 200rem; /* Space inside the section */
+    background-color: #f4f4f4; /* Background color */
+    text-align: center; /* Center-align the section content */
+}
+
+.rotating-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20rem auto; /* Space before and after the container */
+    width: 100%;
+    max-width: 600px; /* Adjust width as needed */
+}
+
+.box {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: animate 30s linear infinite;
+}
+
+.box:hover {
+    animation-play-state: paused;
+}
+
+@keyframes animate {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+.box span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(240px);
+}
+
+.box span::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.box span img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*-----------------------------------*\
   #اراء العملاء 
 \*-----------------------------------*/
-
-
-
-
 
 
 
@@ -810,7 +887,7 @@ overflow-y: auto; /* تمكين التمرير العمودي */
 }
 
 .album {
-  flex: 1 1 calc(50% - 20px); /* 4 ألبومات في صف واحد */
+  flex: 1 1 calc(50% - 20px); /* ألبومين في صف واحد */
   box-sizing: border-box;
 }
 
@@ -860,7 +937,7 @@ overflow-y: auto; /* تمكين التمرير العمودي */
 
 @media (max-width: 480px) {
   .album {
-    flex: 1 1 100%; /* ألبوم واحد في صف واحد */
+    flex: 1 1 100%; /* ألبوم واحد في الصف على الشاشات الصغيرة */
   }
 }
 
@@ -1667,6 +1744,29 @@ overflow-y: auto; /* تمكين التمرير العمودي */
 
 
 
+<!-- Rotating Box Section -->
+<section id="rotating-box-section">
+    <div class="rotating-box-container">
+        <div class="box">
+            <span style="--i:1"><img src="./1.jpg" alt="Image 1"></span>
+            <span style="--i:2"><img src="./2.jpg" alt="Image 2"></span>
+            <span style="--i:3"><img src="./3.jpg" alt="Image 3"></span>
+            <span style="--i:4"><img src="./4.jpg" alt="Image 4"></span>
+            <span style="--i:5"><img src="./5.jpg" alt="Image 5"></span>
+            <span style="--i:6"><img src="./6.jpg" alt="Image 6"></span>
+            <span style="--i:7"><img src="./7.jpg" alt="Image 7"></span>
+            <span style="--i:8"><img src="./8.jpg" alt="Image 8"></span>
+            <span style="--i:9"><img src="./9.jpg" alt="Image 9"></span>
+            <span style="--i:10"><img src="./10.jpg" alt="Image 10"></span>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
 <section id="آراء أولياء الأمور" class="آراء_أولياء_الأمور">
     <div class="container">
         <!-- عنوان القسم -->
@@ -1950,6 +2050,12 @@ overflow-y: auto; /* تمكين التمرير العمودي */
   </div>
   <h2>صور من تدريباتنا</h2>
   <div class="underline"></div>
+
+
+
+
+
+
   <div class="albums">
     <!-- ألبوم 1 -->
     <div class="album">
@@ -2183,7 +2289,7 @@ overflow-y: auto; /* تمكين التمرير العمودي */
 <section id="مدربين الاكاديمية" class="مدربين الاكاديمية">
   <div class="container">
   <div class="section-icon">
-    <img src="images/coach.Gif" alt="Location Icon" class="custom-icon">
+    <img src="images/coach.PNG" alt="Location Icon" class="custom-icon">
   </div>
     <!-- عنوان القسم -->
     <div class="section-title">
@@ -2369,7 +2475,7 @@ overflow-y: auto; /* تمكين التمرير العمودي */
     <!-- أيقونات عائمة -->
     <div class="floating-icons">
         <a href="https://api.whatsapp.com/send?phone=+201115222020" target="_blank" class="whatsapp-icon">
-            <img src="images/wa.gif" alt="WhatsApp">
+            <img src="images/wa.png" alt="WhatsApp">
         </a>
         <div class="chatbot-icon" id="chatbot-icon">
             <img src="images/chatbot.png" alt="Chatbot">
